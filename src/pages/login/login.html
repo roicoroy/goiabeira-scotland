@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="login">
+    <img class="logo" src="assets/imgs/treeandforks.png">
+
+    <!--inputs-->
+    <!--email-->
+    <form [formGroup]="valForm" (submit)="OnLogin($event, valForm.value)">
+        <ion-row>
+            <ion-col col-12>
+                <ion-item>
+                    <ion-label>Email:</ion-label>
+                    <ion-input 
+                    class="form-control" 
+                    id="exampleInputEmail1" 
+                    type="email" 
+                    name="email"        
+                    placeholder="Enter email"
+                    autocomplete="off" 
+                    formControlName="email" 
+                    required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <!--password-->
+        <ion-row>
+            <ion-col col-12>
+                <ion-item>
+                    <ion-label>Password:</ion-label>
+                    <ion-input 
+                    id="exampleInputPassword1" 
+                    type="password"
+                    name="password" 
+                    placeholder="Password" 
+                    formControlName="password"
+                    required=""></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <!--button-->
+        <ion-row>
+            <ion-col col-12>
+                <button 
+                class="login-btn" 
+                type="submit" 
+                [disabled]="!valForm.valid" 
+                ion-button>
+                    Login
+                </button>
+                <!-- or
+                <button 
+                class="register-btn" 
+                (click)="Register()"
+                ion-button>
+                    REGISTER
+                </button> -->
+            </ion-col>
+        </ion-row>
+    </form>
+
+</ion-content>

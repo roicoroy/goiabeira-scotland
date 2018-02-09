@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="login">
+    <img class="logo" src="assets/imgs/treeandfork.png">
+    <form [formGroup]="registration" (ngSubmit)="onSubmit()">
+        <ion-row>
+            <ion-col col-12>
+                <ion-item>
+                    <ion-label>Name:</ion-label>
+                    <ion-input type="text" name="name" formControlName="name" required=""></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <!--email-->
+        <ion-row>
+            <ion-col col-12>
+                <ion-item>
+                    <ion-label>Email:</ion-label>
+                    <ion-input type="email" name="email" formControlName="email" required=""></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <!--password-->
+        <ion-row>
+            <ion-col col-12>
+                <ion-item>
+                    <ion-label>Password:</ion-label>
+                    <ion-input type="password" name="password" id="password" formControlName="password"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <!--button-->
+        <ion-row>
+            <ion-col col-12>
+                <button class="login-btn" type="submit" [disabled]="!registration.valid" ion-button>
+                    Register
+                </button>
+            </ion-col>
+        </ion-row>
+    </form>
+    
+    <ion-row>
+        <ion-col col-12>
+            <a (click)="navLogin()">
+                <p text-center>
+                    ALREADY REGISTERED !
+                </p>
+            </a>
+        </ion-col>
+    </ion-row>
+</ion-content>
