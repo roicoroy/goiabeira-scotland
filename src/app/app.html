@@ -1,4 +1,4 @@
-<ion-split-pane when='md'>
+<ion-split-pane when='lg'>
 <ion-menu persistent="true" class="menu"
   [content]="content">
   <ion-content class="sidebar-menu">
@@ -12,12 +12,21 @@
         <p class="user-name">{{name | uppercase}}</p>
       </ion-col>
     </ion-row>
-
+    <!-- <ion-row class="img-name-row">
+      <ion-col>
+          <h1>Goiabeira Scotland</h1>
+          <img class="user-img" src="assets/imgs/Flag-Pins-Scotland-Brazil.jpg">
+      </ion-col>
+    </ion-row> -->
 
     <button menuClose class="menu-item" ion-item (click)="home()">
       <ion-icon name="home" item-left></ion-icon>
-      Home
+      {{'Home' | translate}}
     </button>
+    <button *ngIf="isLoggedin()" ion-item (click)="profile()" menuClose class="menu-item">
+        <ion-icon name="book" item-left></ion-icon>
+        {{'Profile' | translate}}
+      </button>
     <!-- <button menuClose class="menu-item" ion-item (click)="catagory()">
       <ion-icon name="apps" item-left></ion-icon>
       Category

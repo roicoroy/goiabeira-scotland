@@ -12,13 +12,16 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {firebaseConfig} from './firebase.config';
 
 
-
+import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import {Http, HttpModule} from '@angular/http';
 
 import 'firebase/storage';
 
 import { MyApp } from './app.component';
 
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -31,7 +34,12 @@ import { MyApp } from './app.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: createTranslateLoader,
+      deps: [Http]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

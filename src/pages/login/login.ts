@@ -74,6 +74,9 @@ export class LoginPage {
     }
 
     Register() {
-        this.navCtrl.setRoot("RegistrationPage");
+        this.navCtrl.push("RegistrationPage");
     }
+    isLoggedin() {
+        return localStorage.getItem('uid') != null;
+      }
 }

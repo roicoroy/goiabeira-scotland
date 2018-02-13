@@ -8,6 +8,7 @@ import { Nav, Events } from 'ionic-angular';
 
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
+import { TranslateService } from 'ng2-translate';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
   name: any;
-  imageUrl: any = 'assets/imgs/profile.jpg';
+  imageUrl: any = 'assets/imgs/Flag-Pins-Scotland-Brazil.jpg';
   
   rootPage: string = 'HomePage';
 
@@ -30,7 +31,8 @@ export class MyApp {
     public splashScreen: SplashScreen,
     public af: AngularFireAuth,
     public db: AngularFireDatabase,
-    private events: Events
+    private events: Events,
+    private translateService:TranslateService
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -38,6 +40,12 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     }); 
+  }
+  private useTranslateService(){
+    let value= localStorage.getItem('language');
+    let language = value!=null ? value:'en';
+    // language=='ar'?this.platform.setDir('rtl', true):this.platform.setDir('ltr', true);;
+    this.translateService.use(language);
   }
   
   openPage(page) {
@@ -50,11 +58,11 @@ export class MyApp {
      this.db.object('/users/' + this.uid)
      .valueChanges()
      .subscribe( (res:any) => {
-      //  this.name=res.name;
-      //  this.imageUrl= res.image!='' && res.image!=null ? res.image : "assets/imgs/profile.jpg";
+       this.name=res.name!='' && res.name!=null ? res.name : 'Goiabeira App';
+       this.imageUrl= res.image!='' && res.image!=null ? res.image : "assets/imgs/Flag-Pins-Scotland-Brazil.jpg";
       })
    }
-      // this.useTranslateService();
+      this.useTranslateService();
       // this.getNewsCount();
       // this.getOfferCount();
       // this.listenEvents();
@@ -62,6 +70,9 @@ export class MyApp {
 
   home() {
     this.nav.setRoot('HomePage');
+  }
+  profile() {
+    this.nav.setRoot('Profile');
   }
   
 
@@ -72,7 +83,7 @@ export class MyApp {
   logout() {
     this.af.auth.signOut();
     localStorage.removeItem('uid');
-    this.imageUrl='assets/imgs/profile.jpg';
+    this.imageUrl='assets/imgs/Flag-Pins-Scotland-Brazil.jpg';
     this.nav.setRoot("LoginPage");
   }
 
