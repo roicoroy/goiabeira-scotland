@@ -66,9 +66,13 @@ export class ProductDetailsPage {
         })
     }
 
+    call(){
+        
+    }
+
     ionViewWillEnter(){
-      let cart: Array<any> = JSON.parse(localStorage.getItem('Cart'));
-      this.noOfItems=cart!=null ? cart.length : null;
+    //   let cart: Array<any> = JSON.parse(localStorage.getItem('Cart'));
+    //   this.noOfItems=cart!=null ? cart.length : null;
     }
 
     addQuantity() {
@@ -85,9 +89,7 @@ export class ProductDetailsPage {
         }
     }
 
-    navcart() {
-        this.navCtrl.push("CartPage");
-    }
+
 
     home() {
         this.navCtrl.push("HomePage");

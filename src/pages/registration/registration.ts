@@ -4,7 +4,7 @@ import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireObject} from 'angularfire2/database'
 
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 
 
 @IonicPage()
@@ -77,11 +77,11 @@ export class RegistrationPage implements OnInit {
         });
     }
 
-    private publishEvent(){
-       this.db.object('/users/' + this.af.auth.currentUser.uid).valueChanges().subscribe(userInfo => {
-        this.events.publish('imageUrl',userInfo);
-      });
-    }
+    // private publishEvent(){
+    //    this.db.object('/users/' + this.af.auth.currentUser.uid).valueChanges().subscribe(userInfo => {
+    //     this.events.publish('imageUrl',userInfo);
+    //   });
+    // }
 
   
 

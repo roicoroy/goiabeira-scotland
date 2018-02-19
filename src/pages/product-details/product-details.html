@@ -1,6 +1,6 @@
 <ion-header>
         <ion-item color='primary'>
-            <ion-navbar hideBackButton="false">
+            <ion-navbar hideBackButton="true">
                 <!-- <button ion-button menuToggle>
                     <ion-icon name="menu"></ion-icon>
                 </button> -->
@@ -18,73 +18,71 @@
 <ion-content class="item-page">
     <ion-row class="productImage">
         <img src={{menuItems.thumb}} alt="{{menuItems.title}} ">
-
-
-    </ion-row><!-- first-row -->
-    <!--favourite-->
-    <!-- <span clear text-center *ngIf="resFevrt.$value==null" 
-         (click)="addToFevrt(menuItems.$key)">
-        <ion-icon name="heart" class="fav heart-clicked"></ion-icon>
-    </span>
-    <span clear text-center *ngIf="resFevrt.title" (click)="removeFevrt(menuItems.$key)">
-         <ion-icon name="heart" class="fav"></ion-icon>
-    </span> -->
-    <ion-row>
-        <!-- <ion-col col-6>
-            <div class="count">
-            <span class="item-count" (click)="removeQuantity()">
-              -
-            </span>
-                <span class="item-count show-count">
-              {{count}}
-            </span>
-                <span class="item-count" (click)="addQuantity()">
-              +
-            </span>
-            </div>
-        </ion-col> -->
-
-        <!-- <ion-col col-6>
-            <a (click)="addToCart()" ion-button icon-left full class="btn-add-to-cart">
-                <ion-icon name="cart"></ion-icon>
-                &nbsp;
-                ADD TO CART
-            </a>
-        </ion-col> -->
-    </ion-row><!-- row-2 -->
-    <ion-list radio-group class="size-list">
+    </ion-row>
+    
+        <ion-list class="extra-list">
+            <ion-list-header class="size-list-header" text-center>
+                Description
+            </ion-list-header>
+            <ion-item>
+                <ion-label>
+                    {{menuItems.description}}
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    
+    <ion-list class="size-list">
         <ion-list-header class="size-list-header" text-center>
             Size and prices
         </ion-list-header>
-        <ion-item *ngFor="let item of menuItems.price; let i= index" class="size-list-item">
-            <ion-label *ngIf="item.specialPrice"> {{item.pname}} <span class="cut">${{item.value}}</span> <span
-                    class="offer-p">${{item.specialPrice |number:0}}</span></ion-label>
-            <ion-label *ngIf="!item.specialPrice"> {{item.pname}} ${{item.value}}</ion-label>
-            <ion-radio class="checked" (ionSelect)="sizeOptions(item)"></ion-radio>
+        
+        <ion-item *ngFor="let item of menuItems.price; let i= index">
+            <ion-label *ngIf="item.specialPrice"> 
+                {{item.pname}} =  
+                <span class="cut">£ {{item.value}}</span>
+                <span class="offer-p">£ {{item.specialPrice |number:0}}</span>
+            </ion-label>
+            
+            <ion-label *ngIf="!item.specialPrice"> 
+                {{item.pname}} = £{{item.value}}
+            </ion-label>
         </ion-item>
+        <!-- <ion-item *ngFor="let item of menuItems.price; let i= index" class="size-list-item">
+            <ion-label *ngIf="item.specialPrice"> 
+                {{item.pname}} =  
+                <span class="cut">£ {{item.value}}</span>
+                <span class="offer-p">£ {{item.specialPrice |number:0}}</span>
+            </ion-label>
+            <ion-label *ngIf="!item.specialPrice"> 
+                {{item.pname}} = £{{item.value}}
+                </ion-label>
+            <ion-radio class="checked" (ionSelect)="sizeOptions(item)"></ion-radio>
+        </ion-item> -->
     </ion-list>
-    <ion-list class="extra-list" *ngIf="menuItems.extraOptions != null">
+
+    <!-- <ion-list class="extra-list" *ngIf="menuItems.extraOptions != null">
         <ion-list-header class="header" text-center>Add extra choice</ion-list-header>
         <ion-item *ngFor="let option of menuItems.extraOptions; let i= index" class="list-item">
             <ion-label>{{option.name}} ({{option.value}} £)</ion-label>
             <ion-toggle (ionChange)="checkOptions(option)"></ion-toggle>
         </ion-item>
-    </ion-list>
+    </ion-list> -->
 
-    <!-- <ion-row class="button-fixed">
-        <ion-col col-6>
-            <a (click)="addToCart()" ion-button icon-left full class="btn-add-to-cart">
-                <ion-icon name="cart"></ion-icon>
+    <ion-row>
+        <ion-col>
+            <a (click)="home()" block ion-button icon-left full class="btn-home">
+                <ion-icon name="book"></ion-icon>
                 &nbsp;
-                {{"CHECKOUT" | translate}}
+                Home
             </a>
         </ion-col>
-        <ion-col col-6>
-            <a (click)="home()" ion-button icon-left full class="btn-add-to-cart">
-                <ion-icon name="basket"></ion-icon>
+        
+        <ion-col>
+            <a (click)="call()" block ion-button icon-left full class="btn-home">
+                <ion-icon name="phone"></ion-icon>
                 &nbsp;
-                {{"KEEP SHOPPING" | translate}}
+                Call and order!
             </a>
         </ion-col>
-    </ion-row> -->
+    </ion-row>
 </ion-content>
