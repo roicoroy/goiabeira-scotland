@@ -1,18 +1,6 @@
 <ion-header>
-        <ion-item color='primary'>
-            <ion-navbar hideBackButton="true">
-                <!-- <button ion-button menuToggle>
-                    <ion-icon name="menu"></ion-icon>
-                </button> -->
-            </ion-navbar>
-            <ion-avatar item-end>
-            <img *ngIf="isLoggedin()" class="img" [src]="url">
-            <!-- <img *ngIf="isLoggedin()" src="assets/img/profile.jpg"> -->
-            </ion-avatar>
-            <span item-end *ngIf="isLoggedin()" class="user-name">
-                {{user.name | uppercase}}
-            </span>
-        </ion-item>
+        <ion-navbar>
+        </ion-navbar>
 </ion-header>
 
 <ion-content class="item-page">
@@ -44,9 +32,10 @@
             </ion-label>
             
             <ion-label *ngIf="!item.specialPrice"> 
-                {{item.pname}} = £{{item.value}}
+                {{item.pname}} = £ {{item.value}}
             </ion-label>
         </ion-item>
+        
         <!-- <ion-item *ngFor="let item of menuItems.price; let i= index" class="size-list-item">
             <ion-label *ngIf="item.specialPrice"> 
                 {{item.pname}} =  
@@ -84,5 +73,9 @@
                 Call and order!
             </a>
         </ion-col>
+
+    <!-- <button ion-button full
+            (click)="rate(productDetails.item.itemId)">  Rate Product
+    </button> -->
     </ion-row>
 </ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="album" padding>
+    <ion-slides autoplay="2000" loop="true" effect="fade">
+      <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')'}">
+        <h1 id='shadow'>{{slide.title}}</h1>
+      </ion-slide>
+    </ion-slides>
+</ion-content>

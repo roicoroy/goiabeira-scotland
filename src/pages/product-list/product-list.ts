@@ -84,11 +84,6 @@ export class ProductListPage {
         return localStorage.getItem('uid') != null;
     }
 
-    ionViewWillEnter(){
-      let cart: Array<any> = JSON.parse(localStorage.getItem('Cart'));
-      this.noOfItems=cart!=null ? cart.length : null;
-    }
-
     initializeItems() {
         this.items = this.selectedItems;
     }

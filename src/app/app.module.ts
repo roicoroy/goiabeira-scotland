@@ -11,13 +11,18 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 import {firebaseConfig} from './firebase.config';
 
-
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import {Http, HttpModule} from '@angular/http';
 
 import 'firebase/storage';
 
 import { MyApp } from './app.component';
+import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
+import { Ionic2RatingModule } from 'ionic2-rating';
+import { DataProvider } from '../providers/data/data';
+import { SubscribeService } from '../components/newsletter/subscribe.service';
+import {  HttpClientModule } from '@angular/common/http';
+
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -26,6 +31,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     MyApp,
+    // TextAvatarDirective
     
   ],
   imports: [
@@ -34,6 +40,8 @@ export function createTranslateLoader(http: Http) {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     HttpModule,
+    HttpClientModule,
+    Ionic2RatingModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       provide: TranslateLoader,
@@ -49,7 +57,9 @@ export function createTranslateLoader(http: Http) {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider,
+    SubscribeService
   ]
 })
 export class AppModule {}

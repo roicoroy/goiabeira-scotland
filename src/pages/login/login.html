@@ -1,22 +1,13 @@
-<ion-header class='my-header'>
-    <ion-item color='primary'>
+<ion-header>
         <ion-navbar hideBackButton="true">
             <button ion-button menuToggle>
                 <ion-icon name="menu"></ion-icon>
             </button>
         </ion-navbar>
-        <!-- <ion-avatar item-end>
-            <img *ngIf="isLoggedin()" class="img" [src]="url">
-            <img *ngIf="isLoggedin()" src="assets/img/profile.jpg">
-        </ion-avatar>
-        <span item-end *ngIf="isLoggedin()" class="user-name">
-            {{user.name | uppercase}}
-        </span> -->
-    </ion-item>
 </ion-header>
 
 <ion-content class="login">
-    <img class="logo" src="assets/imgs/treeandforks.png">
+    <img class="logo" src="assets/img/treeandforks.png">
 
   
     <form class='my-class' [formGroup]="valForm" (submit)="OnLogin($event, valForm.value)">
@@ -60,7 +51,7 @@
                 type="submit" 
                 [disabled]="!valForm.valid" 
                 ion-button>
-                    Login
+                    LOGIN
                 </button>
                 or
                 <button 

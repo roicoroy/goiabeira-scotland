@@ -1,4 +1,4 @@
-<ion-split-pane when='lg'>
+<ion-split-pane when='sm'>
 <ion-menu persistent="true" class="menu"
   [content]="content">
   <ion-content class="sidebar-menu">
@@ -20,13 +20,21 @@
     </ion-row> -->
 
     <button menuClose class="menu-item" ion-item (click)="home()">
-      <ion-icon name="home" item-left></ion-icon>
+      <ion-icon item-left name="home" item-left></ion-icon>
       {{'Home' | translate}}
     </button>
     <button *ngIf="isLoggedin()" ion-item (click)="profile()" menuClose class="menu-item">
-        <ion-icon name="book" item-left></ion-icon>
+        <ion-icon item-left name="settings"></ion-icon>
         {{'Profile' | translate}}
       </button>
+      <button *ngIf="isLoggedin()" ion-item (click)="album()" menuClose class="menu-item">
+          <ion-icon item-left name="images"></ion-icon>
+          {{'Album' | translate}}
+        </button>
+        <button *ngIf="isLoggedin()" ion-item (click)="contact()" menuClose class="menu-item">
+          <ion-icon item-left name="mail"></ion-icon>
+          {{'Contact' | translate}}
+        </button>
     <!-- <button menuClose class="menu-item" ion-item (click)="catagory()">
       <ion-icon name="apps" item-left></ion-icon>
       Category

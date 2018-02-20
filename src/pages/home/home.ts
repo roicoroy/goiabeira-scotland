@@ -7,23 +7,27 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import {AngularFireList} from 'angularfire2/database'
 
-
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 })
 export class HomePage {
+  
+  
+
   user: any = {}
   url: any = 'assets/img/profile.jpg';
   value: any;
+  loading: any;
+
   public file: any = {};
   public storageRef = firebase.storage();
 
   public ComingData: Array<any> = [];
-    public Categories: Array<any> = [];
-    comingData: AngularFireList<any>;
-    categories: AngularFireList<any>;
+  public Categories: Array<any> = [];
+  comingData: AngularFireList<any>;
+  categories: AngularFireList<any>;
   
   constructor(
     public af: AngularFireAuth,
@@ -31,9 +35,12 @@ export class HomePage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public navCtrl: NavController,
-    public platform:Platform,            
+    public platform:Platform,
+    
     public events: Events
   ) {
+    
+    
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
   });
@@ -52,11 +59,15 @@ export class HomePage {
           })
           loader.dismiss();
       })
-  })
-  }
+  });
+  
+
+    
+}
+
   navigate(id) {
     this.navCtrl.push("ProductListPage", {id: id});
-}
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
@@ -73,5 +84,5 @@ export class HomePage {
   isLoggedin() {
     return localStorage.getItem('uid') != null;
   }
-
+  
 }

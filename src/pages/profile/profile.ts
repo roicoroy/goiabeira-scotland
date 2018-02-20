@@ -5,6 +5,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {TranslateService} from 'ng2-translate';
 import * as firebase from 'firebase/app';
+import { delay } from 'rxjs/operators';
 
 
 @IonicPage()
@@ -103,8 +104,11 @@ export class Profile {
                 email: this.user.email,
                 // mobileNo: this.user.mobileNo
             }).then(() => {
-                this.createToaster("user information updated successfully", 3000);
+                this.createToaster("user information updated successfully", 1000);
                 this.events.publish('imageUrl',this.user);
+            }).then(() =>{
+                // delay:3000;
+                this.navCtrl.push('HomePage')
             })
         }
     }

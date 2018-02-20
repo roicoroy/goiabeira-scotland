@@ -1,18 +1,9 @@
 <ion-header>
-        <ion-item color='primary'>
-            <ion-navbar hideBackButton="true">
-                <button ion-button menuToggle>
-                    <ion-icon name="menu"></ion-icon>
-                </button>
-            </ion-navbar>
-            <ion-avatar item-end>
-            <img *ngIf="isLoggedin()" class="img" [src]="url">
-            <!-- <img *ngIf="isLoggedin()" src="assets/img/profile.jpg"> -->
-            </ion-avatar>
-            <span item-end *ngIf="isLoggedin()" class="user-name">
-                {{user.name | uppercase}}
-            </span>
-        </ion-item>
+        <ion-navbar hideBackButton="true">
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-navbar>
 </ion-header>
 
 <ion-content class='content'>

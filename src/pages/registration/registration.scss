@@ -25,13 +25,14 @@ page-registration {
       padding-bottom: 2em;
     }
   }
-  .login-btn {
+  .register-btn {
     width: 80%;
     display: block;
     margin: 0 auto;
     border-radius: 5px;
     height: 4.4rem;
     background-color: $primary;
+    color: $primary-lighter;
   }
   .social-icon {
     width: 86px;

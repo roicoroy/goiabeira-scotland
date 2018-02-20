@@ -29,8 +29,8 @@ export class LoginPage {
                 public events:Events
             ) {
         this.valForm = fb.group({
-            'email': ['goiabeirascotland@gmail.com', Validators.compose([Validators.required, CustomValidators.email])],
-            'password': ['123456', Validators.required]
+            'email': ['', Validators.compose([Validators.required, CustomValidators.email])],
+            'password': ['', Validators.required]
         });
 
     }

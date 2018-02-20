@@ -19,7 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
   name: any;
-  imageUrl: any = 'assets/imgs/Flag-Pins-Scotland-Brazil.jpg';
+  imageUrl: any = 'assets/img/Flag-Pins-Scotland-Brazil.jpg';
   
   rootPage: string = 'HomePage';
 
@@ -59,7 +59,7 @@ export class MyApp {
      .valueChanges()
      .subscribe( (res:any) => {
        this.name=res.name!='' && res.name!=null ? res.name : 'Goiabeira App';
-       this.imageUrl= res.image!='' && res.image!=null ? res.image : "assets/imgs/Flag-Pins-Scotland-Brazil.jpg";
+       this.imageUrl= res.image!='' && res.image!=null ? res.image : "assets/img/Flag-Pins-Scotland-Brazil.jpg";
       })
    }
       this.useTranslateService();
@@ -67,15 +67,19 @@ export class MyApp {
       // this.getOfferCount();
       // this.listenEvents();
   }
-
+  album() {
+    this.nav.push('AlbumPage');
+  }
   home() {
     this.nav.setRoot('HomePage');
   }
   profile() {
     this.nav.setRoot('Profile');
   }
+  contact(){
+    this.nav.push('ContactPage')
+  }
   
-
   login() {
     this.nav.setRoot("LoginPage");
   }
@@ -83,7 +87,7 @@ export class MyApp {
   logout() {
     this.af.auth.signOut();
     localStorage.removeItem('uid');
-    this.imageUrl='assets/imgs/Flag-Pins-Scotland-Brazil.jpg';
+    this.imageUrl='assets/img/Flag-Pins-Scotland-Brazil.jpg';
     this.nav.setRoot("LoginPage");
   }
 
