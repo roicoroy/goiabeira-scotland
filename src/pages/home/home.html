@@ -7,15 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-     <ion-grid>
-        <ion-toolbar *ngIf="isLoggedin()">
-            <ion-item text-center color='primary'>
-                Download our beta app for Android.
-                    <ion-icon style='color:#008448; font-size:3em; padding:15px' name="arrow-dropdown-circle"></ion-icon>
-                </a>
-                Ios is coming soon.
-            </ion-item>
-        </ion-toolbar>    
+     <ion-grid> 
         <ion-row>
 
             <ion-col *ngFor="let item of ComingData">
@@ -48,15 +40,29 @@
         </ion-row>
         
         
-        <ion-row text-center class="categories">
+        <!-- <ion-row text-center class="categories">
             <ion-col col-6 *ngFor="let item of Categories" (click)="navigate(item.$key)">
                 
                 <img src="{{item.thumb}}"/>
                 <p class="text-over-img">{{item.title}}</p>
                 
             </ion-col>
+        </ion-row> -->
+        <ion-row>
+            <ion-col text-center>
+                <ion-list *ngIf="isLoggedin()">
+                    <ion-item text-center color='primary'>
+                        <a href="#" onclick="window.open('https://www.dropbox.com/s/5w95ckb97pc4lal/app-debug.apk?dl=0', '_system', 'location=yes'); return false;">
+                            Download</a> 
+                            our beta app for Android (version tested: Android Nougat 7.1.1 - API 25).
+                        <br/>
+                        Ios is coming soon.
+                    </ion-item>
+                </ion-list>   
+            </ion-col>
         </ion-row>
     </ion-grid>
+    
 </ion-content>
 <ion-footer>
     <ion-row text-center>

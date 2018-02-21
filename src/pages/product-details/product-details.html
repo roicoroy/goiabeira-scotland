@@ -21,9 +21,9 @@
     
     <ion-list class="size-list">
         <ion-list-header class="size-list-header" text-center>
-            Size and prices
+                Size and prices
         </ion-list-header>
-        
+            
         <ion-item *ngFor="let item of menuItems.price; let i= index">
             <ion-label *ngIf="item.specialPrice"> 
                 {{item.pname}} =  
@@ -35,27 +35,20 @@
                 {{item.pname}} = £ {{item.value}}
             </ion-label>
         </ion-item>
-        
-        <!-- <ion-item *ngFor="let item of menuItems.price; let i= index" class="size-list-item">
-            <ion-label *ngIf="item.specialPrice"> 
-                {{item.pname}} =  
-                <span class="cut">£ {{item.value}}</span>
-                <span class="offer-p">£ {{item.specialPrice |number:0}}</span>
-            </ion-label>
-            <ion-label *ngIf="!item.specialPrice"> 
-                {{item.pname}} = £{{item.value}}
-                </ion-label>
-            <ion-radio class="checked" (ionSelect)="sizeOptions(item)"></ion-radio>
-        </ion-item> -->
-    </ion-list>
 
-    <!-- <ion-list class="extra-list" *ngIf="menuItems.extraOptions != null">
-        <ion-list-header class="header" text-center>Add extra choice</ion-list-header>
-        <ion-item *ngFor="let option of menuItems.extraOptions; let i= index" class="list-item">
-            <ion-label>{{option.name}} ({{option.value}} £)</ion-label>
-            <ion-toggle (ionChange)="checkOptions(option)"></ion-toggle>
-        </ion-item>
-    </ion-list> -->
+        <ion-list class="extra-list" *ngIf="menuItems.extraOptions != null">
+        
+            <ion-list-header class="header" text-center>
+                Add extra choice
+            </ion-list-header>
+            
+            <ion-item *ngFor="let option of menuItems.extraOptions; let i= index" class="list-item">
+                <ion-label>{{option.name}} ({{option.value}} £)</ion-label>
+                <ion-label (ionChange)="checkOptions(option)"></ion-label>
+            </ion-item>
+        </ion-list>
+
+    </ion-list>
 
     <ion-row>
         <ion-col>
@@ -67,10 +60,11 @@
         </ion-col>
         
         <ion-col>
-            <a (click)="call()" block ion-button icon-left full class="btn-home">
-                <ion-icon name="phone"></ion-icon>
+        
+        <a href="tel:+447510963961" block ion-button icon-left full class="btn-home">
+            <ion-icon name="call"></ion-icon>
                 &nbsp;
-                Call and order!
+            Call and order!
             </a>
         </ion-col>
 
